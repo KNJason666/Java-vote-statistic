@@ -1,0 +1,20 @@
+package java-choice-statistic;
+
+import java.util.Scanner;
+
+public class Result_test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		VoteTest test = new VoteTest();// 新建类
+
+		System.out.print("请输入投票总人数：");// 输入提示
+
+		int num = input.nextInt();
+		test.setPersonNum(num);// 参数设置
+
+		test.result();
+	}
+
+}
