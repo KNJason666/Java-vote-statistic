@@ -1,0 +1,49 @@
+package Java-choive-statistic;
+
+import java.util.Scanner;
+
+public class VoteTest {
+	private int personNum;
+
+	public int getPersonNum() {
+		return personNum;
+	}
+
+	public void setPersonNum(int personNum) {
+		this.personNum = personNum;
+	}
+
+	public int[] voting() {
+		Scanner in = new Scanner(System.in);
+		int[] statistic = new int[personNum + 1];
+		for (int i = 0; i < statistic.length; i++) {
+			statistic[i] = 0;
+		} // 所有选手初始得票数归零
+
+		for (int i = statistic.length; i > statistic.length - personNum; i--) {
+			System.out.printf("请输入你喜欢的选手编号(1到%d):\n", personNum);
+			int temp = in.nextInt();
+			if (temp < statistic.length && temp >= 0) {
+				statistic[temp - 1]++;
+			}
+		}
+		// 具体得票情况
+		// for (int i = 0; i < statistic.length - 1; i++)
+		// System.out.printf("第%d选手的得票数是：%d\n", i + 1, statistic[i]);
+		return statistic;
+	}
+
+	public void result() {
+		int[] result = voting();
+		int max = result[0];
+		int person = 0;
+		for (int i = 0; i < result.length - 1; i++)
+			if (max < result[i]) {
+				max = result[i];
+				person = i + 1;
+			}
+		System.out.println("----------结果公布----------");
+		System.out.printf("第%d选手得票最高，得票数是：%d\n", person, max);
+
+	}
+}
