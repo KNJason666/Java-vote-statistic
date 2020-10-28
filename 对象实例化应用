@@ -1,4 +1,4 @@
-package java-choice-statistic;
+package java-vote-statistic;
 
 import java.util.Scanner;
 
